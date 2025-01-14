@@ -1,1 +1,0 @@
-param cosmosDBDatabaseName string = 'db'

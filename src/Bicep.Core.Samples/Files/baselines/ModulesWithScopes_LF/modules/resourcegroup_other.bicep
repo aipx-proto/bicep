@@ -1,1 +1,0 @@
-output myOutput string = 'hello!'

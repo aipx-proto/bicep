@@ -1,3 +1,0 @@
-<Project>
-  <Import Project="Azure.Bicep.CommandLine.Common.props" />
-</Project>

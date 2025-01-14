@@ -1,1 +1,0 @@
-# This doc has been moved to [aka.ms/bicep-install](https://aka.ms/bicep-install).

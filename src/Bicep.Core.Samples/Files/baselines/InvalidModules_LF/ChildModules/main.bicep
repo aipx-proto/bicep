@@ -1,1 +1,0 @@
-param stringParamA string = 'test'
