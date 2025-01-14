@@ -61,54 +61,14 @@ async function mapToElements(graph: Graph | null, theme: DefaultTheme): Promise<
   return [...nodes, ...edges];
 }
 
-const DEMO_GRAPH = {
-  nodes: [
-    {
-      id: "weatherNotificationGroup",
-      type: "<module>",
-      hasChildren: true,
-    },
-    {
-      id: "weatherNotificationGroup::azureIdentity",
-      type: "microsoft.managedidentity/identities",
-    },
-    {
-      id: "weatherNotificationGroup::azureMap",
-      type: "microsoft.unknown",
-    },
-    {
-      id: "weatherNotificationGroup::signalrDatabase",
-      type: "microsoft.sql/servers/databases",
-    },
-    {
-      id: "weatherNotificationGroup::azureCommunicationService",
-      type: "microsoft.unknown",
-    },
-  ],
-  edges: [
-    {
-      sourceId: "weatherNotificationGroup::azureIdentity",
-      targetId: "weatherNotificationGroup::azureMap",
-    },
-    {
-      sourceId: "weatherNotificationGroup::azureIdentity",
-      targetId: "weatherNotificationGroup::signalrDatabase",
-    },
-    {
-      sourceId: "weatherNotificationGroup::azureIdentity",
-      targetId: "weatherNotificationGroup::azureCommunicationService",
-    },
-  ],
-};
-
 export type BasicDeploymentGraphMessage = {
   kind: "DEPLOYMENT_GRAPH";
   deploymentGraph: Graph | null;
 };
 
-export const App: FC = () => {
+export const App: FC<{ graph?: Graph }> = (props) => {
   const [elements, setElements] = useState<ElementDefinition[]>([]);
-  const [graph, setGraph] = useState<Graph | null>(DEMO_GRAPH as any);
+  const [graph, setGraph] = useState<Graph | null>(props?.graph ?? null);
   const [theme, setTheme] = useState<DefaultTheme>(darkTheme);
 
   const handleMessageEvent = (e: MessageEvent<BasicDeploymentGraphMessage>) => {

@@ -2,18 +2,14 @@
 // Licensed under the MIT License.
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { App } from "./App";
+import { App, Graph } from "./App";
 
-const container = document.getElementById("root");
+export function createVisualizer(container: HTMLElement, initialData: Graph) {
+  const root = createRoot(container);
 
-if (!container) {
-  throw new Error("Could not find the root element");
+  root.render(
+    <StrictMode>
+      <App graph={initialData} />
+    </StrictMode>
+  );
 }
-
-const root = createRoot(container);
-
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
