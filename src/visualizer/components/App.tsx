@@ -68,15 +68,9 @@ export type BasicDeploymentGraphMessage = {
 
 export const App: FC<{ graph?: Graph }> = (props) => {
   const [elements, setElements] = useState<ElementDefinition[]>([]);
-  const [graph, setGraph] = useState<Graph | null>(props?.graph ?? null);
   const [theme, setTheme] = useState<DefaultTheme>(darkTheme);
 
-  const handleMessageEvent = (e: MessageEvent<BasicDeploymentGraphMessage>) => {
-    const message = e.data;
-    if (message.kind === "DEPLOYMENT_GRAPH") {
-      setGraph(message.deploymentGraph);
-    }
-  };
+  const graph = props.graph ?? null;
 
   const applyTheme = (bodyClassName: string) => {
     switch (bodyClassName) {
@@ -95,11 +89,6 @@ export const App: FC<{ graph?: Graph }> = (props) => {
   useEffect(() => {
     void mapToElements(graph, theme).then(setElements);
   }, [graph, theme]);
-
-  useEffect(() => {
-    window.addEventListener("message", handleMessageEvent);
-    return () => window.removeEventListener("message", handleMessageEvent);
-  }, []);
 
   useEffect(() => {
     applyTheme(document.body.className);

@@ -1,4 +1,4 @@
-import { createVisualizer } from "./visualizer/components/index";
+import { createVisualizer } from "./lib";
 
 const DEMO_GRAPH = {
   nodes: [
@@ -40,4 +40,5 @@ const DEMO_GRAPH = {
   ],
 };
 
+// DEMO
 createVisualizer(document.getElementById("root")!, DEMO_GRAPH);
