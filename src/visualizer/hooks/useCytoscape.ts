@@ -11,7 +11,7 @@ export interface ZoomOptions {
 }
 
 export interface CreationOptions {
-  containerRef: RefObject<HTMLDivElement>;
+  containerRef: RefObject<HTMLDivElement | null>;
   layoutOptions: LayoutOptions;
   zoomOptions: ZoomOptions;
   onNodeDoubleTap: (event: cytoscape.EventObjectNode) => void;
@@ -21,9 +21,9 @@ export function useCytoscape(
   elements: cytoscape.ElementDefinition[],
   stylesheets: Stylesheet[],
   { containerRef, layoutOptions, zoomOptions, onNodeDoubleTap }: CreationOptions
-): [React.MutableRefObject<Core | undefined>, React.MutableRefObject<Layouts | undefined>] {
-  const cytoscapeRef = useRef<Core>();
-  const layoutRef = useRef<Layouts>();
+): [React.RefObject<Core | null>, React.RefObject<Layouts | null>] {
+  const cytoscapeRef = useRef<Core>(null);
+  const layoutRef = useRef<Layouts>(null);
 
   // Initialize cytoscape.
   useEffect(() => {
@@ -59,7 +59,7 @@ export function useCytoscape(
   useEffect(() => {
     layoutRef.current?.stop();
     cytoscapeRef.current?.json({ elements });
-    layoutRef.current = cytoscapeRef.current?.layout(layoutOptions).run();
+    layoutRef.current = cytoscapeRef.current?.layout(layoutOptions).run() ?? null;
   }, [elements]);
 
   return [cytoscapeRef, layoutRef];
