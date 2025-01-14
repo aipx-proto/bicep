@@ -3,39 +3,48 @@ import { createVisualizer } from "./lib";
 const DEMO_GRAPH = {
   nodes: [
     {
-      id: "weatherNotificationGroup",
+      id: "testGroup1",
       type: "<module>",
       hasChildren: true,
     },
     {
-      id: "weatherNotificationGroup::azureIdentity",
+      id: "testGroup1::azureIdentity",
       type: "microsoft.managedidentity/identities",
     },
     {
-      id: "weatherNotificationGroup::azureMap",
+      id: "testGroup1::azureMap",
       type: "microsoft.unknown",
     },
     {
-      id: "weatherNotificationGroup::signalrDatabase",
+      id: "testGroup1::signalrDatabase",
       type: "microsoft.sql/servers/databases",
     },
     {
-      id: "weatherNotificationGroup::azureCommunicationService",
+      id: "testGroup2",
+      type: "<module>",
+      hasChildren: true,
+    },
+    {
+      id: "testGroup2::azureCommunicationService",
       type: "microsoft.unknown",
     },
   ],
   edges: [
     {
-      sourceId: "weatherNotificationGroup::azureIdentity",
-      targetId: "weatherNotificationGroup::azureMap",
+      sourceId: "testGroup1::azureIdentity",
+      targetId: "testGroup1::azureMap",
     },
     {
-      sourceId: "weatherNotificationGroup::azureIdentity",
-      targetId: "weatherNotificationGroup::signalrDatabase",
+      sourceId: "testGroup1::azureIdentity",
+      targetId: "testGroup1::signalrDatabase",
     },
     {
-      sourceId: "weatherNotificationGroup::azureIdentity",
-      targetId: "weatherNotificationGroup::azureCommunicationService",
+      sourceId: "testGroup1::azureIdentity",
+      targetId: "testGroup2::azureCommunicationService",
+    },
+    {
+      sourceId: "testGroup2",
+      targetId: "testGroup1",
     },
   ],
 };
