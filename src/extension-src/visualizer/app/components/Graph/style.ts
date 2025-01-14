@@ -3,7 +3,7 @@
 import { Stylesheet } from "cytoscape";
 import { DefaultTheme } from "styled-components";
 import { importResourceIconInline } from "../../assets/icons/azure";
-import moduleIcon from "../../assets/icons/azure/general/10802-icon-service-Folder-Blank.svg";
+import moduleIcon from "../../assets/icons/azure/general/10802-icon-service-Folder-Blank.svg?raw";
 
 function escapeXml(text: string) {
   return text.replace(/[<>&'"]/g, (c) => {
@@ -43,12 +43,7 @@ function createDataUri(svg: string) {
   return "data:image/svg+xml;utf8," + encodeURIComponent(svgElement.outerHTML);
 }
 
-export async function createChildlessNodeBackgroundUri(
-  symbol: string,
-  type: string,
-  isCollection: boolean,
-  theme: DefaultTheme,
-): Promise<string> {
+export async function createChildlessNodeBackgroundUri(symbol: string, type: string, isCollection: boolean, theme: DefaultTheme): Promise<string> {
   const icon = type !== "<module>" ? await importResourceIconInline(type) : moduleIcon;
 
   type = type.split("/").pop() ?? type;

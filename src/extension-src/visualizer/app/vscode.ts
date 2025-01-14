@@ -10,13 +10,13 @@
 function acquireVsCodeApi() {
   return {
     postMessage: (message: unknown) => {
-      console.log("postMessage", message);
+      console.log("[HACK] postMessage", message);
     },
     setState: (state: unknown) => {
-      console.log("setState", state);
+      console.log("[HACK] setState", state);
     },
     getState: <T>() => {
-      console.log("getState");
+      console.log("[HACK] getState");
       return {} as T;
     },
   };

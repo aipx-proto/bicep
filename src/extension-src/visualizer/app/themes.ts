@@ -2,7 +2,8 @@
 // Licensed under the MIT License.
 import { DefaultTheme } from "styled-components";
 
-const fontFamily = getComputedStyle(document.body).getPropertyValue("--vscode-font-family").replace(/"/g, "");
+const fontFamily = `system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif`;
+// const fontFamily = getComputedStyle(document.body).getPropertyValue("--vscode-font-family").replace(/"/g, "");
 
 export const darkTheme: DefaultTheme = {
   name: "dark",
