@@ -2,23 +2,7 @@
 // Licensed under the MIT License.
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createGlobalStyle } from "styled-components";
 import { App } from "./App";
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    overflow: hidden;
-  }
-
-  #root {
-    flex: 1 1 auto;
-    overflow: hidden;
-  }
-`;
 
 const container = document.getElementById("root");
 
@@ -30,7 +14,6 @@ const root = createRoot(container);
 
 root.render(
   <StrictMode>
-    <GlobalStyle />
     <App />
   </StrictMode>
 );
