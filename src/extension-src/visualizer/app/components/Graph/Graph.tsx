@@ -3,9 +3,7 @@
 import cytoscape from "cytoscape";
 import { FC, memo, NamedExoticComponent, useCallback, useMemo, useRef } from "react";
 import styled, { DefaultTheme, withTheme } from "styled-components";
-import { createRevealFileRangeMessage } from "../../../messages";
 import { useCytoscape } from "../../hooks";
-import { vscode } from "../../vscode";
 import { CommandBar } from "./CommandBar";
 import { createStylesheet } from "./style";
 
@@ -63,7 +61,9 @@ const GraphComponent: FC<GraphProps> = ({ elements, theme }) => {
     onNodeDoubleTap: useCallback((event: cytoscape.EventObjectNode) => {
       const filePath = event.target.data("filePath");
       const range = event.target.data("range");
-      vscode.postMessage(createRevealFileRangeMessage(filePath, range));
+      // vscode.postMessage(createRevealFileRangeMessage(filePath, range));
+      // HACK
+      console.log(`[HACK]`, { filePath, range });
     }, []),
   });
 
@@ -90,7 +90,7 @@ const GraphComponent: FC<GraphProps> = ({ elements, theme }) => {
       {
         easing: layoutOptions.animationEasing,
         duration: layoutOptions.animationDuration,
-      },
+      }
     );
   }, []);
 
@@ -123,6 +123,6 @@ export const Graph = memo(
         prevData.source === nextData.source &&
         prevData.target === nextData.target
       );
-    }),
+    })
   // Workaround for https://github.com/styled-components/styled-components/issues/4082.
 ) as NamedExoticComponent<Omit<GraphProps, "theme">>;

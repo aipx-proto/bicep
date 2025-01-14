@@ -1,12 +1,6 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
-import {
-  Position,
-  ProtocolNotificationType,
-  ProtocolRequestType,
-  Range,
-  TextDocumentIdentifier,
-} from "vscode-languageserver-protocol";
+import { Position, ProtocolNotificationType, ProtocolRequestType, Range, TextDocumentIdentifier } from "vscode-languageserver-protocol";
 
 export interface DeploymentGraphParams {
   textDocument: TextDocumentIdentifier;
@@ -33,13 +27,9 @@ export interface DeploymentGraph {
   errorCount: number;
 }
 
-export const deploymentGraphRequestType = new ProtocolRequestType<
-  DeploymentGraphParams,
-  DeploymentGraph | null,
-  never,
-  void,
-  void
->("textDocument/deploymentGraph");
+export const deploymentGraphRequestType = new ProtocolRequestType<DeploymentGraphParams, DeploymentGraph | null, never, void, void>(
+  "textDocument/deploymentGraph"
+);
 
 export interface GetDeploymentDataRequest {
   textDocument: TextDocumentIdentifier;
@@ -52,13 +42,9 @@ export interface GetDeploymentDataResponse {
   errorMessage?: string;
 }
 
-export const getDeploymentDataRequestType = new ProtocolRequestType<
-  GetDeploymentDataRequest,
-  GetDeploymentDataResponse,
-  never,
-  void,
-  void
->("bicep/getDeploymentData");
+export const getDeploymentDataRequestType = new ProtocolRequestType<GetDeploymentDataRequest, GetDeploymentDataResponse, never, void, void>(
+  "bicep/getDeploymentData"
+);
 
 export interface LocalDeployRequest {
   textDocument: TextDocumentIdentifier;
@@ -87,13 +73,7 @@ export interface LocalDeployResponse {
   operations: LocalDeploymentOperationContent[];
 }
 
-export const localDeployRequestType = new ProtocolRequestType<
-  LocalDeployRequest,
-  LocalDeployResponse,
-  never,
-  void,
-  void
->("bicep/localDeploy");
+export const localDeployRequestType = new ProtocolRequestType<LocalDeployRequest, LocalDeployResponse, never, void, void>("bicep/localDeploy");
 
 export interface BicepDeploymentScopeParams {
   textDocument: TextDocumentIdentifier;
@@ -188,13 +168,9 @@ export interface BicepExternalSourceResponse {
   error: string | undefined;
 }
 
-export const bicepExternalSourceRequestType = new ProtocolRequestType<
-  BicepExternalSourceParams,
-  BicepExternalSourceResponse,
-  never,
-  void,
-  void
->("textDocument/bicepExternalSource");
+export const bicepExternalSourceRequestType = new ProtocolRequestType<BicepExternalSourceParams, BicepExternalSourceResponse, never, void, void>(
+  "textDocument/bicepExternalSource"
+);
 
 export interface InsertResourceParams {
   textDocument: TextDocumentIdentifier;
@@ -202,9 +178,7 @@ export interface InsertResourceParams {
   resourceId: string;
 }
 
-export const insertResourceRequestType = new ProtocolNotificationType<InsertResourceParams, void>(
-  "textDocument/insertResource",
-);
+export const insertResourceRequestType = new ProtocolNotificationType<InsertResourceParams, void>("textDocument/insertResource");
 
 export interface ImportKubernetesManifestRequest {
   manifestFilePath: string;

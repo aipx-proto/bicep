@@ -2,19 +2,16 @@
 // Licensed under the MIT License.
 // import cytoscape from "cytoscape";
 import { ElementDefinition } from "cytoscape";
-import { useEffect, useState, VFC } from "react";
+import { FC, useEffect, useState } from "react";
 import { DefaultTheme, ThemeProvider } from "styled-components";
-import { DeploymentGraph } from "../../../language";
-import { DeploymentGraphMessage, Message, READY_MESSAGE } from "../../messages";
+import { DeploymentGraph } from "../../../language/protocol";
+import { DeploymentGraphMessage, Message, READY_MESSAGE } from "../messages";
 import { darkTheme, highContrastTheme, lightTheme } from "../themes";
 import { vscode } from "../vscode";
 import { createChildlessNodeBackgroundUri, createContainerNodeBackgroundUri, Graph } from "./Graph";
 import { StatusBar } from "./StatusBar";
 
-async function mapToElements(
-  graph: DeploymentGraphMessage["deploymentGraph"],
-  theme: DefaultTheme,
-): Promise<ElementDefinition[]> {
+async function mapToElements(graph: DeploymentGraphMessage["deploymentGraph"], theme: DefaultTheme): Promise<ElementDefinition[]> {
   if (!graph) {
     return [];
   }
@@ -37,7 +34,7 @@ async function mapToElements(
             : await createChildlessNodeBackgroundUri(symbol, node.type, node.isCollection, theme),
         },
       };
-    }),
+    })
   );
 
   const edges = graph.edges.map(({ sourceId, targetId }) => ({
@@ -51,7 +48,7 @@ async function mapToElements(
   return [...nodes, ...edges];
 }
 
-export const App: VFC = () => {
+export const App: FC = () => {
   const [elements, setElements] = useState<ElementDefinition[]>([]);
   const [graph, setGraph] = useState<DeploymentGraph | null>(null);
   const [theme, setTheme] = useState<DefaultTheme>(darkTheme);
@@ -92,7 +89,7 @@ export const App: VFC = () => {
     applyTheme(document.body.className);
 
     const observer = new MutationObserver((mutationRecords) =>
-      mutationRecords.forEach((mutationRecord) => applyTheme((mutationRecord.target as HTMLElement).className)),
+      mutationRecords.forEach((mutationRecord) => applyTheme((mutationRecord.target as HTMLElement).className))
     );
 
     observer.observe(document.body, {
