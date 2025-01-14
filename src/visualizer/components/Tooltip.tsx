@@ -13,7 +13,7 @@ const TooltipHostContainer = styled.div`
   user-select: none;
 `;
 
-const TooltipBox = styled.div<{ active: boolean }>`
+const TooltipBox = styled.div<{ $active: boolean }>`
   position: absolute;
   color: white;
   background: black;
@@ -22,7 +22,7 @@ const TooltipBox = styled.div<{ active: boolean }>`
   margin-top: 2px;
   right: 44px;
   width: max-content;
-  display: ${({ active }) => (active ? "block" : "none")};
+  display: ${({ $active: active }) => (active ? "block" : "none")};
 `;
 
 export const TooltipHost: FC<TooltipHostProps> = ({ content, children }) => {
@@ -42,7 +42,7 @@ export const TooltipHost: FC<TooltipHostProps> = ({ content, children }) => {
 
   return (
     <TooltipHostContainer>
-      <TooltipBox active={active}>{content}</TooltipBox>
+      <TooltipBox $active={active}>{content}</TooltipBox>
       <div onMouseEnter={showTooltip} onMouseLeave={hideTooltip} onMouseDown={hideTooltip}>
         {children}
       </div>

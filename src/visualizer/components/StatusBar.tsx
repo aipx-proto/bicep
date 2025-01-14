@@ -18,10 +18,10 @@ const StatusBarContainer = styled.div`
   align-items: center;
 `;
 
-const StatusCircle = styled.div<{ hasErrors: boolean }>`
+const StatusCircle = styled.div<{ $hasErrors: boolean }>`
   width: 8px;
   height: 8px;
-  background-color: ${({ hasErrors, theme }) => (hasErrors ? theme.common.errorIndicatorColor : theme.common.errorFreeIndicatorColor)};
+  background-color: ${({ $hasErrors: hasErrors, theme }) => (hasErrors ? theme.common.errorIndicatorColor : theme.common.errorFreeIndicatorColor)};
   border-radius: 50%;
   color: white;
   margin-top: 2px;
@@ -30,7 +30,7 @@ const StatusCircle = styled.div<{ hasErrors: boolean }>`
 
 const StatusBarComponent: FC<StatusBarProps> = ({ errorCount, hasNodes }) => (
   <StatusBarContainer>
-    <StatusCircle hasErrors={errorCount > 0} />
+    <StatusCircle $hasErrors={errorCount > 0} />
     {errorCount > 0 && (
       <div>
         There {errorCount === 1 ? "is " : "are "}
