@@ -1,0 +1,305 @@
+{
+  "nodes": [
+    {
+      "id": "aiServices",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 491,
+          "character": 0
+        },
+        "end": {
+          "line": 511,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "applicationInsights",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 415,
+          "character": 0
+        },
+        "end": {
+          "line": 424,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "containerRegistry",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 449,
+          "character": 0
+        },
+        "end": {
+          "line": 466,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "hub",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 612,
+          "character": 0
+        },
+        "end": {
+          "line": 639,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "keyVault",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 426,
+          "character": 0
+        },
+        "end": {
+          "line": 447,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "network",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 513,
+          "character": 0
+        },
+        "end": {
+          "line": 545,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "privateEndpoints",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 547,
+          "character": 0
+        },
+        "end": {
+          "line": 582,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "project",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 641,
+          "character": 0
+        },
+        "end": {
+          "line": 659,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "storageAccount",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 468,
+          "character": 0
+        },
+        "end": {
+          "line": 489,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "virtualMachine",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 584,
+          "character": 0
+        },
+        "end": {
+          "line": 610,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "workspace",
+      "type": "<module>",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 403,
+          "character": 0
+        },
+        "end": {
+          "line": 413,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": true,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    }
+  ],
+  "edges": [
+    {
+      "sourceId": "aiServices",
+      "targetId": "workspace"
+    },
+    {
+      "sourceId": "applicationInsights",
+      "targetId": "workspace"
+    },
+    {
+      "sourceId": "containerRegistry",
+      "targetId": "workspace"
+    },
+    {
+      "sourceId": "hub",
+      "targetId": "aiServices"
+    },
+    {
+      "sourceId": "hub",
+      "targetId": "applicationInsights"
+    },
+    {
+      "sourceId": "hub",
+      "targetId": "containerRegistry"
+    },
+    {
+      "sourceId": "hub",
+      "targetId": "keyVault"
+    },
+    {
+      "sourceId": "hub",
+      "targetId": "storageAccount"
+    },
+    {
+      "sourceId": "hub",
+      "targetId": "workspace"
+    },
+    {
+      "sourceId": "keyVault",
+      "targetId": "workspace"
+    },
+    {
+      "sourceId": "network",
+      "targetId": "workspace"
+    },
+    {
+      "sourceId": "privateEndpoints",
+      "targetId": "aiServices"
+    },
+    {
+      "sourceId": "privateEndpoints",
+      "targetId": "containerRegistry"
+    },
+    {
+      "sourceId": "privateEndpoints",
+      "targetId": "hub"
+    },
+    {
+      "sourceId": "privateEndpoints",
+      "targetId": "keyVault"
+    },
+    {
+      "sourceId": "privateEndpoints",
+      "targetId": "network"
+    },
+    {
+      "sourceId": "privateEndpoints",
+      "targetId": "storageAccount"
+    },
+    {
+      "sourceId": "project",
+      "targetId": "aiServices"
+    },
+    {
+      "sourceId": "project",
+      "targetId": "hub"
+    },
+    {
+      "sourceId": "project",
+      "targetId": "workspace"
+    },
+    {
+      "sourceId": "storageAccount",
+      "targetId": "aiServices"
+    },
+    {
+      "sourceId": "storageAccount",
+      "targetId": "workspace"
+    },
+    {
+      "sourceId": "virtualMachine",
+      "targetId": "network"
+    },
+    {
+      "sourceId": "virtualMachine",
+      "targetId": "storageAccount"
+    },
+    {
+      "sourceId": "virtualMachine",
+      "targetId": "workspace"
+    }
+  ],
+  "errorCount": 16
+}

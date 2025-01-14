@@ -1,0 +1,51 @@
+{
+  "nodes": [
+    {
+      "id": "managedIdentity",
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 5,
+          "character": 0
+        },
+        "end": {
+          "line": 8,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": false,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    },
+    {
+      "id": "roleAssignment",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "isCollection": false,
+      "range": {
+        "start": {
+          "line": 10,
+          "character": 0
+        },
+        "end": {
+          "line": 17,
+          "character": 1
+        }
+      },
+      "hasChildren": false,
+      "hasError": false,
+      "filePath": "/home/chusun/repos/bicep/src/extension-src/test.bicep"
+    }
+  ],
+  "edges": [
+    {
+      "sourceId": "roleAssignment",
+      "targetId": "managedIdentity"
+    },
+    {
+      "sourceId": "roleAssignment",
+      "targetId": "managedIdentity"
+    }
+  ],
+  "errorCount": 0
+}
